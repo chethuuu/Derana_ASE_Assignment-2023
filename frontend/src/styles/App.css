@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter';
+    width: 100%;
+    min-height: 100vh;
+    color: black;
+}
+
+.bg-img {
+    background: url('https://img.freepik.com/free-vector/dark-gradient-background-with-copy-space_53876-99548.jpg?w=996&t=st=1674762662~exp=1674763262~hmac=12f49eb633e987b50a1b89bf9e240f86ba4e5170476fec5012cad2d65bab8ea5') 
+    no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.form {
+    background-color: #EA4C46;
+}
+
+.card-body p {
+    margin-top: -2%;
+    font-size: 0.7rem;
+}
+
+.gallery {
+    width: 100%;
+}
+
+.surge {
+    width: 20%;
+    align-items: center;
+    position:fixed
+}
+
+.main-profile {
+    position: fixed;
+}
+
+.main-profile img {
+    width:45%;
+}

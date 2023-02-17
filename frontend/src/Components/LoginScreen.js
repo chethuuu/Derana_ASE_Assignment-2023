@@ -14,7 +14,7 @@ function LoginScreen() {
   const [verified, setVerified] = useState(false);
 
   const loginUser = () => {
-    if (!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)) {
+    if (!/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)) {
       Swal.fire("Fail!", "Please give a valid E-mail Address", "error")
       return
     }
@@ -35,7 +35,11 @@ function LoginScreen() {
         dispatch({ type: "USER", payload: data.user })
         localStorage.setItem('jwt', data.token);
         localStorage.setItem('user', JSON.stringify(data.user));
-        navigate('/home')
+        if (data.user.userRole == 1) {
+          navigate('/home')
+        } else {
+          navigate('/')
+        }
       }
     }).catch(err => {
       console.log(err);
@@ -53,13 +57,13 @@ function LoginScreen() {
       <br /><br /><br />
       <div className="container shadow my-4">
         <div className="row justify-content-end">
-          <div className="col-md-6 d-flex flex-column align-items-center text-dark justify-content-center form order">
+          <div className="col-md-7 d-flex flex-column align-items-center text-dark justify-content-center form order-1">
             <h1 className="display-4 fw-bolder text-center"> Welcome </h1>
             <p className="lead text-center"> Enter User Details to Login </p>
             <h5 className="mb-4">OR</h5>
             <Link to="/register" className="btn btn-outline-light rounded-pill pb-2 w-50">Register</Link>
           </div>
-          <div className="col-md-6 p-5">
+          <div className="col-md-5 p-5">
             <h1 className="display-6 fw-bolder mb-2">LOGIN</h1> <br />
 
             <label className="form-label">Email address</label>
