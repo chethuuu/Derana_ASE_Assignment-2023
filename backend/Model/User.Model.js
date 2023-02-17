@@ -12,18 +12,22 @@ const userSchema = new mongoose.Schema({
         unique: true
     },
 
+    profilePic: {
+        type: String,
+        required: true,
+    },
+
+    userRole: {
+        type: String,
+        required: true,
+        default: 0
+    },
+
     password: {
         type: String,
         required: true,
         minLength: 6
-    },
-
-    userRole: {
-        type: Number,
-        default: 0
     }
-}, {
-    timestamps: true
-})
+});
 
 module.exports = mongoose.model('User', userSchema);
