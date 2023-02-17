@@ -6,8 +6,8 @@ const UserController = {
 
     //register user
     RegisterUser: async (req, res) => {
-        const { name, email, picture, password, userRole } = req.body;
-        if (!name || !email || !password || !picture) {
+        const { name, email, password, userRole } = req.body;
+        if (!name || !email || !password) {
             return res.status(422).json({ error: 'Please Fill all the required fields' })
         }
         User.findOne({ email: email }).then(registeredUser => {
@@ -20,7 +20,6 @@ const UserController = {
                 const user = new User({
                     name: name,
                     email: email,
-                    profilePic: picture,
                     userRole,
                     password: HashedPassword
                 });
@@ -50,9 +49,9 @@ const UserController = {
             bcrypt.compare(password, registeredUser.password).then(matchPassword => {
                 //Compare Password with encrypted Password
                 if (matchPassword) {
-                    const token = jwt.sign({ _id: registeredUser._id }, env.process.JWT_SECRET_KEY)
-                    const { _id, name, email, picture, userRole } = registeredUser;
-                    res.json({ token: token, user: { _id, name, email, picture, userRole } })
+                    const token = jwt.sign({ _id: registeredUser._id }, process.env.JWT_SECRET_KEY)
+                    const { _id, name, email, userRole } = registeredUser;
+                    res.json({ token: token, user: { _id, name, email, userRole } })
                 } else {
                     return res.status(400).json({ error: "Invalid E-mail or Password" })
                 }
