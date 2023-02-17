@@ -9,7 +9,8 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.use('/user', require('./Routes/User.Routes'));
+app.use(require('./Routes/User.Routes'));
+app.use('/article', require('./Routes/Article.Routes'));
 
 //Connect MongoDB
 mongoose.connect(
@@ -22,5 +23,5 @@ mongoose.connect(
 }).catch((err) => console.log("DB Connection Failed", err));
 
 //Port    
-const PORT = 6000
+const PORT = 5000
 app.listen(PORT, () => console.log(`Backend Server is running on PORT ${PORT}`))
