@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const { ObjectId } = mongoose.Schema.Types;
 
-const articleSchema = mongoose.Schema({
+const postSchema = mongoose.Schema({
     location: {
         type: String,
         required: true
@@ -14,8 +14,25 @@ const articleSchema = mongoose.Schema({
 
     postImg: {
         type: String,
-        required: true,
+        required: true
     },
+
+    likes: [
+        {
+            type: ObjectId,
+            ref: 'User'
+        }
+    ],
+
+    comments: [
+        {
+            text: String,
+            postedBy: {
+                type: ObjectId,
+                ref: 'User'
+            }
+        }
+    ],
 
     postedBy: [
         {
@@ -27,4 +44,4 @@ const articleSchema = mongoose.Schema({
     timestamps: true
 })
 
-module.exports = mongoose.model('Article', articleSchema)
+module.exports = mongoose.model('Post', postSchema)
