@@ -4,11 +4,11 @@ import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-route
 import Navbar from './Components/Navbar'
 import LoginScreen from './Components/LoginScreen'
 import RegisterScreen from './Components/RegisterScreen'
-import ProfileScreen from './Components/ProfileScreen'
-import LandingScreen from './Components/LandingScreen'
-import CreatePost from './Components/Post/CreatePost'
 import { reducer, initialState } from './Components/State/Reducer'
-import Article from './Components/Post/Article'
+import Article from './Components/Admin/Article'
+import CreateArticle from './Components/Admin/CreateArticle'
+import ViewArticlebyID from './Components/ViewArticlebyID'
+import UpdateArticle from './Components/Admin/UpdateArticle'
 
 export const UserContext = createContext()
 
@@ -30,10 +30,10 @@ const Routing = () => {
     <Routes>
       <Route exact path="/" element={<LoginScreen />} />
       <Route path="/register" element={<RegisterScreen />} />
-      <Route path="/home" element={<LandingScreen />} />
       <Route path="/article" element={<Article />} />
-      <Route path="/profile" element={<ProfileScreen />} />
-      <Route path="/create" element={<CreatePost />} />
+      <Route path="/upload" element={<CreateArticle />} />
+      <Route path="/:id" element={<ViewArticlebyID />} />
+      <Route path="/update/:id" element={<UpdateArticle />} />
     </Routes>
   )
 

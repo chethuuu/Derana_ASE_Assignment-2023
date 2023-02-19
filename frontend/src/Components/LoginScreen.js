@@ -35,11 +35,7 @@ function LoginScreen() {
         dispatch({ type: "USER", payload: data.user })
         localStorage.setItem('jwt', data.token);
         localStorage.setItem('user', JSON.stringify(data.user));
-        if (data.user.userRole == 1) {
-          navigate('/home')
-        } else {
-          navigate('/')
-        }
+        navigate('/article')
       }
     }).catch(err => {
       console.log(err);

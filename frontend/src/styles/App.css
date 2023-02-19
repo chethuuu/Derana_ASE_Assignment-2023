@@ -48,3 +48,12 @@ body {
 .main-profile img {
     width:45%;
 }
+
+.read-more {
+   text-align: justify;
+   font-size: 20px;
+}
+
+.news-img {
+    float: left;
+}
