@@ -9,12 +9,13 @@ import Article from './Components/Admin/Article'
 import CreateArticle from './Components/Admin/CreateArticle'
 import ViewArticlebyID from './Components/ViewArticlebyID'
 import UpdateArticle from './Components/Admin/UpdateArticle'
+import AdminProfile from './Components/Admin/AdminProfile'
 
 export const UserContext = createContext()
 
 const Routing = () => {
   const navigate = useNavigate();
-  const { state, dispatch } = useContext(UserContext)
+  const { dispatch } = useContext(UserContext)
 
   //if user not registered they will be redirect to the login page
   useEffect(() => {
@@ -34,6 +35,7 @@ const Routing = () => {
       <Route path="/upload" element={<CreateArticle />} />
       <Route path="/:id" element={<ViewArticlebyID />} />
       <Route path="/update/:id" element={<UpdateArticle />} />
+      <Route path="/adminProfile" element={<AdminProfile />} />
     </Routes>
   )
 

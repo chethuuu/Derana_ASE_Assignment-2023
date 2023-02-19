@@ -55,19 +55,19 @@ function CreateArticle() {
                 <div className="row d-flex justify-content-center align-items-center h-100">
                     <div className="col-12 mt-5">
                         <div class="card mb-3" style={{ width: "100%" }}> <br />
-                            <center><h3 className='display-6 fw-bolder'>Upload Post</h3></center> <br />
+                            <center><h3 className='display-6 fw-bolder'>Upload Article</h3></center> <br />
                             <div class="card-body">
                                 <div className="mb-3">
-                                    <label className="form-label">Location</label>
+                                    <label className="form-label">Topic</label>
                                     <input type="text" name="location" className="form-control" aria-describedby="emailHelp"
                                         value={location} onChange={(e) => setLocation(e.target.value)}
-                                        placeholder='Add a Location' />
+                                        placeholder='Add Topic' />
                                 </div>
                                 <div className="mb-3">
-                                    <label className="form-label">Caption</label>
+                                    <label className="form-label">Description</label>
                                     <textarea type="text" name="body" className="form-control"
                                         value={body} onChange={(e) => setBody(e.target.value)}
-                                        placeholder='Write a Caption'
+                                        placeholder='Write Description'
                                     />
                                 </div>
                                 <div className="mb-3">
@@ -76,7 +76,7 @@ function CreateArticle() {
                                         onChange={(e) => setImage(e.target.files[0])}
                                     />
                                 </div>
-                                <button className="btn btn-primary w-100 mt-4 rounded-pill"
+                                <button className="btn btn-danger w-100 mt-4 rounded-pill"
                                     onClick={() => uploadPost()} type="submit" name="action">
                                     Upload Post
                                 </button>

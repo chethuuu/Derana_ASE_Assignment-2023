@@ -1,11 +1,9 @@
-import React, { useState, useEffect, useContext } from 'react'
-import { UserContext } from '../App';
-import { useParams } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { Link, useParams } from 'react-router-dom'
 
 const ViewArticlebyID = () => {
-    const { id, location, body } = useParams();
+    const { id } = useParams();
     const [data, setData] = useState([]);
-    const { state, dispatch } = useContext(UserContext)
     console.log('render')
 
     useEffect(() => {
@@ -30,13 +28,16 @@ const ViewArticlebyID = () => {
                             {
                                 data ? (
                                     <div>
-                                        <h1>{data.location}</h1> <br />
+                                        <h1 style={{ fontFamily: "Roboto" }}>{data.location}</h1>
                                         <h6>{new Date(data.createdAt).toLocaleDateString()} || {new Date(data.createdAt).toLocaleTimeString()}</h6>
                                         <img src={data.postImg} class="card-img-top" alt="" /> <br /><br />
-                                        <p style={{ textAlign: "justify", fontSize: "20px" }}>{data.body}</p>
+                                        <p style={{ textAlign: "justify", fontSize: "20px", fontFamily: "Tinos" }}>{data.body}</p>
+                                        <Link to="/article">
+                                            <button className='btn btn-danger'>Back to Home</button>
+                                        </Link>
                                     </div>
                                 ) : (
-                                    <p>Loading article details...</p>
+                                    <p>Loading Article Details...</p>
                                 )
                             }
                         </div>

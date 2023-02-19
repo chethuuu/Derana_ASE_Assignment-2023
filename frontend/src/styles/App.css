@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tinos&display=swap');
 
 * {
 	padding: 0;
@@ -35,7 +38,7 @@ body {
     width: 100%;
 }
 
-.surge {
+.derana {
     width: 20%;
     align-items: center;
     position:fixed
@@ -43,6 +46,7 @@ body {
 
 .main-profile {
     position: fixed;
+    align-content: center;
 }
 
 .main-profile img {

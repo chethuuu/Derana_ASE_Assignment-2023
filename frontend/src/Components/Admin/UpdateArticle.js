@@ -59,7 +59,7 @@ function UpdateArticle() {
                     <div className="row d-flex justify-content-center align-items-center h-100">
                         <div className="col-12 mt-5">
                             <div class="card mb-3" style={{ width: "100%" }}> <br />
-                                <center><h3 className='display-6 fw-bolder'>Upload Post</h3></center> <br />
+                                <center><h3 className='display-6 fw-bolder'>Update Article</h3></center> <br />
                                 <div class="card-body">
                                     <form onSubmit={handleSubmit}>
                                         <div className="mb-3">
@@ -82,7 +82,7 @@ function UpdateArticle() {
                                             <input type="file" name="image" className="form-control"
                                             />
                                         </div>
-                                        <button className="btn btn-primary w-100 mt-4 rounded-pill"
+                                        <button className="btn btn-danger w-100 mt-4 rounded-pill"
                                             type="submit" name="action">
                                             Update Article
                                         </button>
