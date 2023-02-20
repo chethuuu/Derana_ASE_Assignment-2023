@@ -182,7 +182,7 @@ const Article = () => {
 
                                       <div class="d-flex align-items-center mb-2">
                                         <div class="flex-shrink-0">
-                                          <img src='https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80'
+                                          <img src='https://preview.keenthemes.com/metronic-v4/theme/assets/pages/media/profile/profile_user.jpg'
                                             alt="pic" class="img-fluid rounded-circle border border-dark border-3"
                                             style={{ width: "50px", height: "50px" }} />
                                         </div>
@@ -252,9 +252,9 @@ const Article = () => {
                     <div className="card" style={{ width: "100%", border: "none" }}>
                       <center>
                         <div className='' style={{ position: "fixed" }}>
-                          <img src='https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80' alt='' className='rounded-circle' style={{ width: "40%" }} />
-                          <h4>{state.name}</h4>
-                          <h5>{state.email}</h5>
+                          <img src='https://preview.keenthemes.com/metronic-v4/theme/assets/pages/media/profile/profile_user.jpg' alt='' className='rounded-circle' style={{ width: "40%" }} />
+                          <h4>{state?.name}</h4>
+                          <h5>{state?.email}</h5>
                         </div>
                       </center>
                     </div>
