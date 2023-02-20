@@ -2,19 +2,19 @@ const Post = require('../Model/Article.Model');
 
 const PostController = {
 
-    //create article
+    //Create Article
     CreateArticle: async (req, res) => {
-        const { location, body, picture } = req.body;
+        const { topic, body, picture } = req.body;
 
-        if (!location || !body) {
+        if (!topic || !body) {
             res.status(422).json({ error: "Please fill the all fields!" })
         }
 
-        //not pass password to post 
+        //not pass password to article 
         req.user.password = undefined;
 
         const post = new Post({
-            location: location,
+            topic: topic,
             body: body,
             postImg: picture,
             postedBy: req.user
@@ -30,7 +30,7 @@ const PostController = {
     //get article
     GetArticle: async (req, res) => {
         Post.find()
-            .populate('postedBy', '_id name email profilePic')
+            .populate('postedBy', '_id name email')
             .sort('-createdAt')
             .sort('likes')
             .then(posts => {
@@ -43,7 +43,7 @@ const PostController = {
     //get user own article
     MyArticles: async (req, res) => {
         Post.find({ postedBy: req.user._id })
-            .populate("postedBy", '_id name email profilePic')
+            .populate("postedBy", '_id name email')
             .sort('-createdAt')
             .then(myPost => {
                 res.json({ myPost })
@@ -106,7 +106,7 @@ const PostController = {
             })
     },
 
-    //get relavant article
+    //get relavant article by ID
     getArticleDetailsbyID: async (req, res) => {
         let id = req.params.id;
         Post.findById(id, function (err, post) {
@@ -114,18 +114,18 @@ const PostController = {
         });
     },
 
-    //update Article
+    //update Article by ID
     updateArticle: async (req, res) => {
         try {
-            const { location, body, picture } = req.body;
-            await Post.findOneAndUpdate({ _id: req.params.id }, { location, body, picture })
+            const { topic, body, picture } = req.body;
+            await Post.findOneAndUpdate({ _id: req.params.id }, { topic, body, picture })
             res.json({ msg: "Update Article Successfull" })
         } catch (err) {
             return res.status(500).json({ msg: err.message })
         }
     },
 
-    //delete relavant article
+    //delete relavant article by ID
     deleteArticle: async (req, res) => {
         Post.findOne({ _id: req.params.postId })
             .populate('postedBy', '_id')

@@ -2,7 +2,8 @@ const mongoose = require('mongoose')
 const { ObjectId } = mongoose.Schema.Types;
 
 const postSchema = mongoose.Schema({
-    location: {
+    
+    topic: {
         type: String,
         required: true
     },

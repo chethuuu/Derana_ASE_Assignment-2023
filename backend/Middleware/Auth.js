@@ -8,7 +8,7 @@ module.exports = (req, res, next) => {
         return res.status(401).json({ error: "You must be Login first!" })
     }
 
-    //Authorization
+    //Authorization process
     const token = authorization.replace("Bearer ", "")
     jwt.verify(token, process.env.JWT_SECRET_KEY, (err, payload) => {
         if (err) {

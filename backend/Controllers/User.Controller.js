@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 
 const UserController = {
 
-    //register user
+    //Register User
     RegisterUser: async (req, res) => {
         const { name, email, password, userRole } = req.body;
         if (!name || !email || !password) {
@@ -36,7 +36,7 @@ const UserController = {
     },
 
 
-    //login user
+    //Login User
     LoginUser: async (req, res) => {
         const { email, password } = req.body;
         if (!email || !password) {

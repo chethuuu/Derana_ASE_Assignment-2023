@@ -9,13 +9,14 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+//import routes
 app.use(require('./Routes/User.Routes'));
 app.use('/article', require('./Routes/Article.Routes'));
 
 //Connect MongoDB
 mongoose.connect(
     process.env.DB_URL, {
-    //type warnings
+    //warnings
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }).then(() => {
@@ -23,5 +24,5 @@ mongoose.connect(
 }).catch((err) => console.log("DB Connection Failed", err));
 
 //Port    
-const PORT = 5000
+const PORT = process.env.PORT || 5000
 app.listen(PORT, () => console.log(`Backend Server is running on PORT ${PORT}`))
