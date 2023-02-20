@@ -130,9 +130,9 @@ const Article = () => {
       <div className="py-5 h-100">
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col-12">
-            <div class="input-group">
+            <div className="input-group">
               <div className="col-md-6 mx-auto py-5">
-                <input type="search" class="form-control" placeholder="Search by Article" aria-label="Search" onChange={event => { setserachItem(event.target.value) }}
+                <input type="search" className="form-control" placeholder="Search by Article" aria-label="Search" onChange={event => { setserachItem(event.target.value) }}
                   aria-describedby="search-addon" />
               </div>
             </div>
@@ -147,7 +147,7 @@ const Article = () => {
                     </div>
                   </div>
                   <div className="col-lg-9 ml-2 mb-5">
-                    <div class="card mx-auto" style={{ width: "90%", border: "none" }}>
+                    <div className="card mx-auto" style={{ width: "90%", border: "none" }}>
                     <h4 className='fw-bolder'>Latest News</h4>
                       {
                         data && data.filter((data) => {
@@ -159,12 +159,12 @@ const Article = () => {
                         })
                           .map(item => {
                             return (
-                              <div class="card-body shadow" style={{ marginBottom: "2%" }}>
+                              <div className="card-body shadow" style={{ marginBottom: "2%" }}>
                                 {
                                   state?.userRole == 1
                                     ?
                                     <>
-                                      <p class="text-end mt-1">
+                                      <p className="text-end mt-1">
                                         {
                                           item.postedBy[0]._id == state._id
                                           &&
@@ -173,7 +173,7 @@ const Article = () => {
 
                                         }
                                       </p>
-                                      <p class="text-end mt-1">
+                                      <p className="text-end mt-1">
                                         {
                                           item.postedBy[0]._id == state._id
                                           &&
@@ -183,17 +183,17 @@ const Article = () => {
                                         }
                                       </p>
 
-                                      <div class="d-flex align-items-center mb-2">
-                                        <div class="flex-shrink-0">
+                                      <div className="d-flex align-items-center mb-2">
+                                        <div className="flex-shrink-0">
                                           <img src='https://preview.keenthemes.com/metronic-v4/theme/assets/pages/media/profile/profile_user.jpg'
-                                            alt="pic" class="img-fluid rounded-circle border border-dark border-3"
+                                            alt="pic" className="img-fluid rounded-circle border border-dark border-3"
                                             style={{ width: "50px", height: "50px" }} />
                                         </div>
-                                        <div class="flex-grow-1 ms-2">
-                                          <div class="d-flex flex-row align-items-center mt-3 username">
+                                        <div className="flex-grow-1 ms-2">
+                                          <div className="d-flex flex-row align-items-center mt-3 username">
                                             <h6>{item.postedBy[0].name}</h6>
                                           </div>
-                                          <div class="mt-2">
+                                          <div className="mt-2">
                                             <p>{item.postedBy[0].email}</p>
                                           </div>
                                         </div>
@@ -203,7 +203,7 @@ const Article = () => {
                                     ""
                                 }
 
-                                <div class="d-flex align-items-center mb-2">
+                                <div className="d-flex align-items-center mb-2">
                                   <h2 style={{ fontFamily: "Roboto" }}> {item.topic}</h2>
                                 </div>
                                 <div className="row py-3">
@@ -220,27 +220,27 @@ const Article = () => {
                                   </div>
                                 </div>
                                 <div className='d-flex justify-content-between'>
-                                  <div class="p-2">
+                                  <div className="p-2">
                                     {
                                       item.likes.includes(state._id)
 
                                         ?
-                                        <span class="fa fa-heart" style={{ fontSize: "18px", color: "red" }}
+                                        <span className="fa fa-heart" style={{ fontSize: "18px", color: "red" }}
                                           onClick={() => (UnlikePost(item._id))}></span>
 
                                         :
 
-                                        <i class="fa fa-heart-o" style={{ fontSize: "18px" }}
+                                        <i className="fa fa-heart-o" style={{ fontSize: "18px" }}
                                           onClick={() => (LikePost(item._id))}></i>
 
                                     }
                                     <h6>{item.likes.length} likes</h6></div>
-                                  <div class="p-2">{(Math.floor((new Date() - new Date(item.createdAt)) / (1000 * 60 * 60 * 24)))}d</div>
+                                  <div className="p-2">{(Math.floor((new Date() - new Date(item.createdAt)) / (1000 * 60 * 60 * 24)))}d ago</div>
                                 </div>
                                 <h6><b>{item.postedBy[0].username}</b></h6>
                                 <form onSubmit={(e) => {
                                   e.preventDefault();
-                                  console.log(e.target[0].value);
+                                  //console.log(e.target[0].value);
                                   addComment(e.target[0].value.item._id);
                                 }}>
                                   <input type="text" placeholder='Type here...' className='form-control' />
