@@ -6,7 +6,7 @@ import Logo from '../Images/Derana.png'
 const Navbar = () => {
     const { state } = useContext(UserContext)
     const renderList = () => {
-        //console.log(state?.userRole)
+        console.log(state?.userRole)
 
         if (state?.userRole == 1) {
             return [

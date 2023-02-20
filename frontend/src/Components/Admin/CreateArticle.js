@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 function CreateArticle() {
     const navigate = useNavigate();
 
-    const [location, setLocation] = useState("");
+    const [topic, setTopic] = useState("");
     const [body, setBody] = useState("");
     const [image, setImage] = useState("");
     const [url, setUrl] = useState("")
@@ -33,7 +33,7 @@ function CreateArticle() {
                 'Authorization': 'Bearer ' + localStorage.getItem("jwt")
             },
             body: JSON.stringify({
-                location: location,
+                topic: topic,
                 body: body,
                 picture: url
             })
@@ -41,7 +41,7 @@ function CreateArticle() {
             if (data.error) {
                 Swal.fire("Fail", "Error Occured, Try Again!", "error")
             } else {
-                Swal.fire("Congrats", "You're Successfully Uploaded to feed!", "success")
+                Swal.fire("Congrats", "You're Successfully Uploaded Article to feed!", "success")
                 navigate('/article')
             }
         }).catch(err => {
@@ -59,8 +59,8 @@ function CreateArticle() {
                             <div class="card-body">
                                 <div className="mb-3">
                                     <label className="form-label">Topic</label>
-                                    <input type="text" name="location" className="form-control" aria-describedby="emailHelp"
-                                        value={location} onChange={(e) => setLocation(e.target.value)}
+                                    <input type="text" name="topic" className="form-control" aria-describedby="emailHelp"
+                                        value={topic} onChange={(e) => setTopic(e.target.value)}
                                         placeholder='Add Topic' />
                                 </div>
                                 <div className="mb-3">

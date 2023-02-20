@@ -48,7 +48,6 @@ function UpdateArticle() {
             })
             .catch((error) => {
                 console.error(error);
-                // Handle error
             });
     }, [id]);
 

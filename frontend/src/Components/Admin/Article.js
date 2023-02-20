@@ -5,6 +5,7 @@ import { MdEdit } from 'react-icons/md'
 import Logo from '../../Images/Derana.png'
 import ReactReadMoreReadLess from "react-read-more-read-less";
 import { Link } from 'react-router-dom';
+import Swal from "sweetalert2";
 
 const Article = () => {
   const [data, setData] = useState([]);
@@ -118,6 +119,7 @@ const Article = () => {
           return item._id !== result._id
         })
         setData(newData);
+        Swal.fire("Congrats", "Article Sucessfully Deleted!", "success")
       })
   }
 
@@ -146,11 +148,12 @@ const Article = () => {
                   </div>
                   <div className="col-lg-9 ml-2 mb-5">
                     <div class="card mx-auto" style={{ width: "90%", border: "none" }}>
+                    <h4 className='fw-bolder'>Latest News</h4>
                       {
                         data && data.filter((data) => {
                           if (serachItem == "") {
                             return data
-                          } else if (data.location.toLowerCase().includes(serachItem.toLowerCase())) {
+                          } else if (data.topic.toLowerCase().includes(serachItem.toLowerCase())) {
                             return data
                           }
                         })
@@ -201,7 +204,7 @@ const Article = () => {
                                 }
 
                                 <div class="d-flex align-items-center mb-2">
-                                  <h2 style={{ fontFamily: "Roboto" }}> {item.location}</h2>
+                                  <h2 style={{ fontFamily: "Roboto" }}> {item.topic}</h2>
                                 </div>
                                 <div className="row py-3">
                                   <div className="col-md-4">

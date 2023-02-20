@@ -28,7 +28,7 @@ const ViewArticlebyID = () => {
                             {
                                 data ? (
                                     <div>
-                                        <h1 style={{ fontFamily: "Roboto" }}>{data.location}</h1>
+                                        <h1 style={{ fontFamily: "Roboto" }}>{data.topic}</h1>
                                         <h6>{new Date(data.createdAt).toLocaleDateString()} || {new Date(data.createdAt).toLocaleTimeString()}</h6>
                                         <img src={data.postImg} class="card-img-top" alt="" /> <br /><br />
                                         <p style={{ textAlign: "justify", fontSize: "20px", fontFamily: "Tinos" }}>{data.body}</p>

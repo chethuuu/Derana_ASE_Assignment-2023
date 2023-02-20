@@ -32,7 +32,7 @@ const ProfileScreen = () => {
                                                 style={{ width: "180px", borderRadius: "10px" }} />
                                         </div>
                                         <div class="flex-grow-1 ms-3 mt-3">
-                                            <h5 class="mb-1">{state?.name} - {state?.email}</h5>
+                                            <h5 class="mb-1">{state?.name} || {state?.email}</h5>
                                         </div>
                                     </div>
                                     <div>

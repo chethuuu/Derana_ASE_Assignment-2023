@@ -76,7 +76,7 @@ function LoginScreen() {
               sitekey="6LfVJi8kAAAAAHOzrYzNFHVtspPGZA88z2UDnGM3"
               onChange={reCaptcha} required /> <br />
             <button type="submit" class="btn btn-danger w-100 mx-auto rounded-pill"
-              name="action" onClick={loginUser}>
+              name="action" onClick={loginUser} disabled={!verified}>
               Login
             </button>
           </div>
