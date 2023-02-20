@@ -67,6 +67,7 @@ function CreateArticle() {
                                     <label className="form-label">Description</label>
                                     <textarea type="text" name="body" className="form-control"
                                         value={body} onChange={(e) => setBody(e.target.value)}
+                                        rows="4" cols="50"
                                         placeholder='Write Description'
                                     />
                                 </div>
@@ -78,7 +79,7 @@ function CreateArticle() {
                                 </div>
                                 <button className="btn btn-danger w-100 mt-4 rounded-pill"
                                     onClick={() => uploadPost()} type="submit" name="action">
-                                    Upload Post
+                                    Upload Article
                                 </button>
                             </div>
                         </div>

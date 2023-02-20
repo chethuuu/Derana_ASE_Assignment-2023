@@ -8,12 +8,12 @@ function UpdateArticle() {
 
     const navigate = useNavigate();
 
-    const [location, setLocation] = useState("");
+    const [topic, setTopic] = useState("");
     const [body, setBody] = useState("");
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const updatedArticle = { location, body };
+        const updatedArticle = { topic, body };
         fetch(`http://localhost:5000/article/update/${id}`, {
             method: "PUT",
             headers: {
@@ -43,7 +43,7 @@ function UpdateArticle() {
         })
             .then((response) => response.json())
             .then((data) => {
-                setLocation(data.location);
+                setTopic(data.topic);
                 setBody(data.body);
             })
             .catch((error) => {
@@ -52,7 +52,7 @@ function UpdateArticle() {
     }, [id]);
 
     return (
-        <div> 
+        <div>
             <section className="mt-5 h-100 h-custom gradient-custom-2">
                 <div className="container py-5 h-100 w-50">
                     <div className="row d-flex justify-content-center align-items-center h-100">
@@ -62,18 +62,19 @@ function UpdateArticle() {
                                 <div class="card-body">
                                     <form onSubmit={handleSubmit}>
                                         <div className="mb-3">
-                                            <label className="form-label">Location</label>
-                                            <input type="text" name="location" className="form-control" aria-describedby="emailHelp"
-                                                value={location}
-                                                onChange={(event) => setLocation(event.target.value)}
-                                                placeholder='Add a Location' />
+                                            <label className="form-label">Topic</label>
+                                            <input type="text" name="topic" className="form-control" aria-describedby="emailHelp"
+                                                value={topic}
+                                                onChange={(event) => setTopic(event.target.value)}
+                                                placeholder='Add a Topic' />
                                         </div>
                                         <div className="mb-3">
-                                            <label className="form-label">Caption</label>
+                                            <label className="form-label">Description</label>
                                             <textarea type="text" name="body" className="form-control"
+                                                rows="4" cols="50"
                                                 value={body}
                                                 onChange={(event) => setBody(event.target.value)}
-                                                placeholder='Write a Caption'
+                                                placeholder='Write a Description'
                                             />
                                         </div>
                                         <div className="mb-3">
@@ -97,68 +98,3 @@ function UpdateArticle() {
 }
 
 export default UpdateArticle;
-
-// import React, { useState, useEffect } from 'react'
-// import { useParams } from 'react-router-dom'
-// import axios from "axios"
-
-// function UpdateArticle() {
-
-//     const { id } = useParams("");
-
-//     const [data, setData] = useState([]);
-
-//     useEffect(() => {
-//         fetch(`http://localhost:5000/article/${id}`, {
-//             method: "GET",
-//             headers: {
-//                 "Authorization": "Bearer " + localStorage.getItem("jwt")
-//             }
-//         }).then(res => res.json())
-//             .then(result => {
-//                 console.log(result);
-//                 setData(result)
-//             })
-//     }, [])
-
-//     const handleSubmit = async (event) => {
-//         event.preventDefault();
-
-//         const updatedUser = { location, body };
-
-//         try {
-//             const response = await fetch(`http://localhost:5000/article/update/${userId}`, {
-//                 method: "PUT",
-//                 headers: {
-//                     "Content-Type": "application/json",
-//                     'Authorization': 'Bearer ' + localStorage.getItem('jwt')
-//                 },
-//                 body: JSON.stringify(updatedUser),
-//             });
-//             const data = await response.json();
-//             setUser(data);
-//             alert("Article updated successfully!");
-//         } catch (error) {
-//             console.error(error);
-//         }
-//     };
-
-//     return (
-//         <div>
-            
-//             {/* {
-//                 data ? (
-//                     <div>
-//                         <h1>{data.location}</h1> <br />
-//                         <img src={data.postImg} class="card-img-top" alt="" /> <br /><br />
-//                         <p style={{ textAlign: "justify", fontSize: "20px" }}>{data.body}</p>
-//                     </div>
-//                 ) : (
-//                     <p>Loading article details...</p>
-//                 )
-//             } */}
-//         </div>
-//     )
-// }
-
-// export default UpdateArticle
